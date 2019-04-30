@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: <%= name %>
+    app.kubernetes.io/part-of: <%= name %>
+    gitops-source-sha: "bf2f0692e364ffa50de812b1bccb606b"
+  name: <%= name %>
+spec:
+  ports:
+  - name: api
+    port: 8080
+    protocol: TCP
+    targetPort: <%= serviceTargetPort %>
+  - name: admin
+    port: 8081
+    protocol: TCP
+    targetPort: admin
+  selector:
+    app.kubernetes.io/name: <%= name %>
+  type: ClusterIP
