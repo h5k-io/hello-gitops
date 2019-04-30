@@ -1,0 +1,6 @@
+repositories:
+- name: hello-app
+  targets:
+  - production:
+      cluster: mycluster
+      namespace: hello
